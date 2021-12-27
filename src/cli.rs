@@ -25,8 +25,23 @@ pub enum Commands {
 
         #[clap(subcommand)]
         command: StatCommands
-    }
+    },
 
+    /// manipulate creature list
+    #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
+    Creature {
+
+        #[clap(subcommand)]
+        command: CreatureCommands
+    },
+
+    /// manipulate color list
+    #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
+    Color {
+
+        #[clap(subcommand)]
+        command: ColorCommands
+    },
 }
 
 
@@ -34,6 +49,25 @@ pub enum Commands {
 pub enum StatCommands {
 
     /// print counts of creatures, colors and combinations
-    Count{}
+    Count {}
+
+}
+
+#[derive(clap::Subcommand)]
+pub enum CreatureCommands {
+
+    /// add multiple creatures
+    Add {
+
+        names: Vec<String>,
+    }
+
+}
+
+#[derive(clap::Subcommand)]
+pub enum ColorCommands {
+
+    /// add multiple colors
+    Add {}
 
 }

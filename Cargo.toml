@@ -10,3 +10,5 @@ description = "This app generates a combination of a random color and a random c
 [dependencies]
 rand = { version = "0.8" }
 clap = { version = "3.0.0-rc.8", features = ["derive"] }
+colored = "2"
+regex = "1"
