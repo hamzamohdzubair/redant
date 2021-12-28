@@ -16,7 +16,13 @@ pub enum Commands {
         
         /// number of generations
         #[clap(short='n', long)]
-        num: Option<usize>
+        num: Option<usize>,
+
+        /// max length of generated word
+        #[clap(short='m', long)]
+        max: Option<usize>,
+
+
     },
 
     /// reset local data

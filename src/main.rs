@@ -32,11 +32,19 @@ fn main() {
             std::fs::write(&*CWD.join("colors"), include_str!("data/colors")).unwrap();
         }
 
-        cli::Commands::Generate { num} => {
+        cli::Commands::Generate { num, max} => {
             for _ in 0..num.unwrap_or(1) {
-                let random_creature = creatures.lines().choose(&mut rand::thread_rng()).unwrap();
-                let random_color = colors.lines().choose(&mut rand::thread_rng()).unwrap();
-                println!("{}{}", random_color, random_creature)
+                for _ in 0..5000 {
+                    let random_creature = creatures.lines().choose(&mut rand::thread_rng()).unwrap();
+                    let random_color = colors.lines().choose(&mut rand::thread_rng()).unwrap();
+                    let combination = format!("{}{}", random_color, random_creature);
+
+                    if combination.len() <= max.unwrap_or(100) {
+                        println!("{}{}", random_color, random_creature);
+                        break;
+                    }
+
+                }
             }
 
         }
