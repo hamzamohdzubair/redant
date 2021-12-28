@@ -6,7 +6,10 @@ edition = "2021"
 description = "This app generates a combination of a random color and a random creature (real and fictional)"
 
 license = "MIT"
-# repository = 
+repository = "https://github.com/hamzamohdzubair/redant.git"
+readme = "Readme.md"
+keywords = ["names", "generator", "random"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
