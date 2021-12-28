@@ -19,6 +19,9 @@ pub enum Commands {
         num: Option<usize>
     },
 
+    /// reset local data
+    Reset { },
+
     /// print stats related to creatures and colors
     #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
     Stat {
@@ -59,7 +62,7 @@ pub enum CreatureCommands {
     /// add multiple creatures
     Add {
 
-        names: Vec<String>,
+        inputs: Vec<String>,
     }
 
 }
@@ -68,6 +71,8 @@ pub enum CreatureCommands {
 pub enum ColorCommands {
 
     /// add multiple colors
-    Add {}
+    Add {
+        inputs: Vec<String>,
+    }
 
 }

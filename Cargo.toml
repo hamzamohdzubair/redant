@@ -5,6 +5,9 @@ authors = ["Hamza Mohd Zubair <hamzamohdzubair@gmail.com>"]
 edition = "2021"
 description = "This app generates a combination of a random color and a random creature (real and fictional)"
 
+license = "MIT"
+# repository = 
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
