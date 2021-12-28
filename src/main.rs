@@ -13,23 +13,23 @@ fn main() {
     // let creatures = std::fs::read_to_string("redant.data/creatures").unwrap();
     // let colors = std::fs::read_to_string("redant.data/colors").unwrap();
 
-    let creatures = std::fs::read_to_string("redant.data/creatures")
+    let creatures = std::fs::read_to_string(".redant/creatures")
         .unwrap_or_else( |_|{
-            std::fs::create_dir_all("redant.data").unwrap();
+            std::fs::create_dir_all(".redant").unwrap();
             read_write_return(include_str!("data/creatures"), "creatures")
         });
 
-    let colors = std::fs::read_to_string("redant.data/colors")
+    let colors = std::fs::read_to_string(".redant/colors")
         .unwrap_or_else( |_|{
-            std::fs::create_dir_all("redant.data").unwrap();
+            std::fs::create_dir_all(".redant").unwrap();
             read_write_return(include_str!("data/colors"), "colors")
         });
 
     match &cli.command {
         cli::Commands::Reset {} => {
-            std::fs::create_dir_all("redant.data").unwrap();
-            std::fs::write("redant.data/creatures", include_str!("data/creatures")).unwrap();
-            std::fs::write("redant.data/colors", include_str!("data/colors")).unwrap();
+            std::fs::create_dir_all(".redant").unwrap();
+            std::fs::write(".redant/creatures", include_str!("data/creatures")).unwrap();
+            std::fs::write(".redant/colors", include_str!("data/colors")).unwrap();
         }
 
         cli::Commands::Generate { num} => {
@@ -58,7 +58,7 @@ fn main() {
             match &command {
                 cli::CreatureCommands::Add { inputs } => {
                     let new_colors = check_for_existence_then_add(inputs, &creatures);
-                    std::fs::write("redant.data/creatures", new_colors).unwrap();
+                    std::fs::write(".redant/creatures", new_colors).unwrap();
                 }
             }
         }
@@ -67,7 +67,7 @@ fn main() {
             match &command {
                 cli::ColorCommands::Add{ inputs} => {
                     let new_colors = check_for_existence_then_add(inputs, &colors);
-                    std::fs::write("redant.data/colors", new_colors).unwrap();
+                    std::fs::write(".redant/colors", new_colors).unwrap();
                 }
             }
         }
@@ -91,6 +91,6 @@ fn check_for_existence_then_add(lst_inputs: &Vec<String>, gold_string: &str ) ->
 }
 
 fn read_write_return(in_file: &str, out_file: &str) -> String {
-    std::fs::write(format!("{}/{}", "redant.data", out_file), in_file).unwrap();
+    std::fs::write(format!("{}/{}", ".redant", out_file), in_file).unwrap();
     in_file.to_owned()
 }

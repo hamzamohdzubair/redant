@@ -1,6 +1,6 @@
 [package]
 name = "redant"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Hamza Mohd Zubair <hamzamohdzubair@gmail.com>"]
 edition = "2021"
 description = "This app generates a combination of a random color and a random creature (real and fictional)"
@@ -17,4 +17,3 @@ categories = ["command-line-utilities"]
 rand = { version = "0.8" }
 clap = { version = "3.0.0-rc.8", features = ["derive"] }
 colored = "2"
-regex = "1"
