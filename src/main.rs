@@ -2,34 +2,34 @@ use rand::seq::IteratorRandom;
 use clap::Parser;
 use colored::*;
 
+lazy_static::lazy_static!{
+    static ref CWD: std::path::PathBuf = dirs::home_dir().unwrap().join(".redant");
+
+}
+
 mod cli;
 
 fn main() {
     let cli = cli::Cli::parse();
+    // let HOME = dirs::home_dir().unwrap();
 
-    // std::fs::create_dir_all("redant.data").unwrap();
-    // std::fs::write("redant.data/creatures", include_str!("data/creatures")).unwrap();
-    // std::fs::write("redant.data/colors", include_str!("data/colors")).unwrap();
-    // let creatures = std::fs::read_to_string("redant.data/creatures").unwrap();
-    // let colors = std::fs::read_to_string("redant.data/colors").unwrap();
-
-    let creatures = std::fs::read_to_string(".redant/creatures")
+    let creatures = std::fs::read_to_string(&*CWD.join("creatures"))
         .unwrap_or_else( |_|{
-            std::fs::create_dir_all(".redant").unwrap();
+            std::fs::create_dir_all(&*CWD).unwrap();
             read_write_return(include_str!("data/creatures"), "creatures")
         });
 
-    let colors = std::fs::read_to_string(".redant/colors")
+    let colors = std::fs::read_to_string(&*CWD.join("colors"))
         .unwrap_or_else( |_|{
-            std::fs::create_dir_all(".redant").unwrap();
+            std::fs::create_dir_all(&*CWD).unwrap();
             read_write_return(include_str!("data/colors"), "colors")
         });
 
     match &cli.command {
         cli::Commands::Reset {} => {
-            std::fs::create_dir_all(".redant").unwrap();
-            std::fs::write(".redant/creatures", include_str!("data/creatures")).unwrap();
-            std::fs::write(".redant/colors", include_str!("data/colors")).unwrap();
+            std::fs::create_dir_all(&*CWD).unwrap();
+            std::fs::write(&*CWD.join("creatures"), include_str!("data/creatures")).unwrap();
+            std::fs::write(&*CWD.join("colors"), include_str!("data/colors")).unwrap();
         }
 
         cli::Commands::Generate { num} => {
@@ -58,7 +58,7 @@ fn main() {
             match &command {
                 cli::CreatureCommands::Add { inputs } => {
                     let new_colors = check_for_existence_then_add(inputs, &creatures);
-                    std::fs::write(".redant/creatures", new_colors).unwrap();
+                    std::fs::write(&*CWD.join("creatures"), new_colors).unwrap();
                 }
             }
         }
@@ -67,7 +67,7 @@ fn main() {
             match &command {
                 cli::ColorCommands::Add{ inputs} => {
                     let new_colors = check_for_existence_then_add(inputs, &colors);
-                    std::fs::write(".redant/colors", new_colors).unwrap();
+                    std::fs::write(&*CWD.join("colors"), new_colors).unwrap();
                 }
             }
         }
@@ -91,6 +91,6 @@ fn check_for_existence_then_add(lst_inputs: &Vec<String>, gold_string: &str ) ->
 }
 
 fn read_write_return(in_file: &str, out_file: &str) -> String {
-    std::fs::write(format!("{}/{}", ".redant", out_file), in_file).unwrap();
+    std::fs::write(&*CWD.join(out_file), in_file).unwrap();
     in_file.to_owned()
 }
