@@ -4,16 +4,16 @@ Generate a random combination of color and creature. Userful in naming objects, 
 
 <div align="center">
   <h4>
-    <a href="#install">
-      Install
+    <a href="https://hamzamohdzubair.github.io/redant/">
+      Guide
     </a>
     <span> | </span>
-    <a href="#usage">
-      Usage
+    <a href="https://docs.rs/crate/redant/latest">
+      API
     </a>
     <span> | </span>
-    <a href="https://docs.rs/sqlx">
-      Docs
+    <a href="https://crates.io/crates/redant">
+      Rust Crate Page
     </a>
   </h4>
 </div>
