@@ -13,7 +13,7 @@ Generate a random combination of color and creature. Userful in naming objects, 
     </a>
     <span> | </span>
     <a href="https://crates.io/crates/redant">
-      Rust Crate Page
+      Crate
     </a>
   </h4>
 </div>
