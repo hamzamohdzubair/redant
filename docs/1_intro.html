@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1_intro.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">App</li><li class="chapter-item expanded "><a href="2_install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="3_get_start.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="4_basic_commands.html"><strong aria-hidden="true">3.</strong> Basic Commands</a></li><li class="chapter-item expanded "><a href="7_modify.html"><strong aria-hidden="true">4.</strong> Modify Data</a></li><li class="chapter-item expanded affix "><li class="part-title">Lib</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Functions</div></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1_intro.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">App</li><li class="chapter-item expanded "><a href="2_install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="3_get_start.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="4_basic_commands.html"><strong aria-hidden="true">3.</strong> Basic Commands</a></li><li class="chapter-item expanded "><a href="7_modify.html"><strong aria-hidden="true">4.</strong> Modify Commands</a></li><li class="chapter-item expanded affix "><li class="part-title">Lib</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Functions</div></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,6 +150,10 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 <hr />
 <div align="center">
   <h4>
+    <a href="https://github.com/hamzamohdzubair/redant">
+      Repo
+    </a>
+    <span> | </span>
     <a href="https://hamzamohdzubair.github.io/redant/">
       Guide
     </a>
@@ -194,20 +198,6 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
