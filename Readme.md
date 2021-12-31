@@ -1,4 +1,4 @@
-<h1><span>redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" width="5%" ></span></h1>
+<h1 style="display:table;"><span style="vertical-align:middle;">redant <img  alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" width="5%" ></span></h1>
 <!-- # redant -->
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
