@@ -2,9 +2,13 @@
 
 [Introduction](./1_intro.md)
 
+
 # App
 
-- [Basic Commands](./chapter_1.md)
+- [Installation](./2_install.md)
+- [Getting Started](./3_get_start.md)
+- [Basic Commands](./4_basic_commands.md)
+- [Modify Data](./7_modify.md)
 
 # Lib
 

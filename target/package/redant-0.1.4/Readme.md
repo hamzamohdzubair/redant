@@ -1,5 +1,3 @@
-# Introduction
-
 <h1>
 redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" height="25px">
 </h1>

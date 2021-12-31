@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>redant</title>
-        <meta name="robots" content="noindex" />
+        <title>Basic Commands - redant</title>
 
 
         <!-- Custom HTML head -->
@@ -82,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1_intro.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">App</li><li class="chapter-item expanded "><a href="2_install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="3_get_start.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="4_basic_commands.html"><strong aria-hidden="true">3.</strong> Basic Commands</a></li><li class="chapter-item expanded "><a href="7_modify.html"><strong aria-hidden="true">4.</strong> Modify Data</a></li><li class="chapter-item expanded affix "><li class="part-title">Lib</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Functions</div></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1_intro.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">App</li><li class="chapter-item expanded "><a href="2_install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="3_get_start.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="4_basic_commands.html" class="active"><strong aria-hidden="true">3.</strong> Basic Commands</a></li><li class="chapter-item expanded "><a href="7_modify.html"><strong aria-hidden="true">4.</strong> Modify Data</a></li><li class="chapter-item expanded affix "><li class="part-title">Lib</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Functions</div></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,75 +142,24 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<h1>
-redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" height="25px">
-</h1>
-<p>Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).</p>
-<hr />
-<div align="center">
-  <h4>
-    <a href="https://hamzamohdzubair.github.io/redant/">
-      Guide
-    </a>
-    <span> | </span>
-    <a href="https://docs.rs/crate/redant/latest">
-      API
-    </a>
-    <span> | </span>
-    <a href="https://crates.io/crates/redant">
-      Crates.io
-    </a>
-    <span> | </span>
-    <a href="https://lib.rs/crates/redant">
-      Lib.rs
-    </a>
-  </h4>
-</div>
-<hr />
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>MIT</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<ol>
-<li>
-<p>You need to have Rust installed. Rust can be installed in few seconds: <a href="https://www.rust-lang.org/tools/install">Install Rust</a></p>
-</li>
-<li>
-<p><code>cargo install redant</code></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
-<h3 id="generate-a-random-name"><a class="header" href="#generate-a-random-name">Generate a random name:</a></h3>
-<pre><code class="language-shell">redant generate
-</code></pre>
-<h3 id="get-help"><a class="header" href="#get-help">Get Help:</a></h3>
-<pre><code class="language-shell">redant help
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-commands"><a class="header" href="#basic-commands">Basic Commands</a></h1>
+                        <h1 id="basic-commands"><a class="header" href="#basic-commands">Basic Commands</a></h1>
 <h2 id="generate-command"><a class="header" href="#generate-command">Generate Command:</a></h2>
 <p>Generate n number of names: <code>redant generate -n10</code></p>
 <p>Generate name of max length: <code>redant generate -m8</code></p>
 <h2 id="stat-command"><a class="header" href="#stat-command">Stat Command:</a></h2>
 <p>Get the count of creatures, colors and combinations: <code>redant stat count</code></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="modify-commands"><a class="header" href="#modify-commands">Modify Commands</a></h1>
-<p>To be able to manipulate the list of creatures and colors redant creates a copy of the actual data files creatures and colors in <code>/home/user/</code> directory with the name of <code>.redant</code>. This is hidden directory. This directory is usually created only after running commands on this page.</p>
-<h3 id="creature"><a class="header" href="#creature">Creature</a></h3>
-<p>Add a creature to your local data: <code>redant creature add alien venom</code></p>
-<p>This will add two creatures to your local data: <code>alien</code> and <code>venom</code>. The color of the output of this command will tell you if add operation was successful as explained below.</p>
-<h3 id="color"><a class="header" href="#color">Color</a></h3>
-<p>Add a color to your local data: <code>redant color add newcolor1 newcolor2 newcolor3</code></p>
-<p><strong>Output:</strong></p>
-<ul>
-<li>Green: Added</li>
-<li>Red: Not added because already present</li>
-</ul>
-<p><strong>Note:</strong> You can add as many creatures or colors as you want in one command</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3_get_start.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next" href="7_modify.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -219,7 +167,13 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="3_get_start.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next" href="7_modify.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -256,11 +210,6 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
     </body>
 </html>
