@@ -1,4 +1,4 @@
-<h1>redant <img alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" width="5%"></h1>
+<h1><span>redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" width="5%" ></span></h1>
 <!-- # redant -->
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
@@ -28,6 +28,8 @@ Generate a random combination of color and creature. Userful in naming objects, 
   </h4>
 </div>
 
-## Tech
+---
 
-[![Rust](https://github.com/jalbertsr/logo-badge-images/blob/master/img/rsz_rust.png?raw=true)](https://www.rust-lang.org)
+## License
+
+MIT
