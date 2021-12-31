@@ -17,7 +17,6 @@ Generate a random combination of color and creature. Userful in naming objects, 
       Repo
     </a>
     <span> | </span>
-  <h4>
     <a href="https://hamzamohdzubair.github.io/redant/">
       Guide
     </a>
