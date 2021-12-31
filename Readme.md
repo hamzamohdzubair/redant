@@ -1,4 +1,4 @@
-![redant](https://i.imgur.com/7U4ktuT.png){:height="20%" width="20%"}
+<img src="https://i.imgur.com/7U4ktuT.png?1" width="20%">
 
 # redant
 
