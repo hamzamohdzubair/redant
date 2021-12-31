@@ -1,8 +1,12 @@
+![redant](https://i.imgur.com/7U4ktuT.png){:height="20%" width="20%"}
+
 # redant
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
 
-![redant](https://i.imgur.com/7U4ktuT.png)
+
+
+---
 
 
 <div align="center">
