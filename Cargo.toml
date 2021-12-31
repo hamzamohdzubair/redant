@@ -10,6 +10,7 @@ repository = "https://github.com/hamzamohdzubair/redant.git"
 readme = "Readme.md"
 keywords = ["names", "generator", "random"]
 categories = ["command-line-utilities"]
+documentation = "https://hamzamohdzubair.github.io/redant/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
