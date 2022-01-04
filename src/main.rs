@@ -11,7 +11,6 @@ mod cli;
 
 fn main() {
     let cli = cli::Cli::parse();
-    // let HOME = dirs::home_dir().unwrap();
 
     let creatures = std::fs::read_to_string(&*CWD.join("creatures"))
         .unwrap_or_else( |_|{

@@ -1,4 +1,3 @@
-
 #[derive(clap::Parser)]
 #[clap(author, version, about)]
 #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]

@@ -254,7 +254,7 @@ dependencies = [
 
 [[package]]
 name = "redant"
-version = "0.1.3"
+version = "0.1.5"
 dependencies = [
  "clap",
  "colored",
