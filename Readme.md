@@ -24,7 +24,6 @@ Generate a random combination of color and creature. Userful in naming objects, 
 
 ---
 
-
 <div align="center">
   <h4>
     <a href="https://github.com/hamzamohdzubair/redant">
@@ -50,7 +49,3 @@ Generate a random combination of color and creature. Userful in naming objects, 
 </div>
 
 ---
-
-## License
-
-MIT
