@@ -13,7 +13,7 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 
 ### Important Links
 [![Github](https://img.shields.io/badge/github-hamzamohdzubair%2Fredant-blue?style=for-the-badge&logo=github)](https://github.com/hamzamohdzubair/redant)
-[![Github](https://img.shields.io/badge/book-redant-blue?style=for-the-badge)](https://hamzamohdzubair.github.io/redant/)
+[![Github](https://img.shields.io/badge/book-redant-blueviolet?style=for-the-badge)](https://hamzamohdzubair.github.io/redant/)
 
 <i class="fa-thin fa-book"></i>
 
