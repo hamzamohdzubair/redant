@@ -6,6 +6,7 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 [![Crates.io](https://img.shields.io/crates/l/redant?style=for-the-badge)](https://crates.io/crates/redant)
 [![Crates.io](https://img.shields.io/crates/d/redant?style=for-the-badge)](https://crates.io/crates/redant)
 [![Crates.io](https://img.shields.io/crates/v/redant?style=for-the-badge)](https://crates.io/crates/redant)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/hamzamohdzubair/redant?style=for-the-badge)](#)
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
 
