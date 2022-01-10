@@ -1,7 +1,7 @@
 <h1>
 redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7U4ktuT.png?1" height="25px">
 </h1>
-[<img src="https://img.shields.io/badge/github-hamzamohdzubair%2Fredant-blue?style=for-the-badge&logo=github">](https://github.com/hamzamohdzubair/redant)
+[![Github](https://img.shields.io/badge/github-hamzamohdzubair%2Fredant-blue?style=for-the-badge&logo=github)](https://github.com/hamzamohdzubair/redant)
 
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
