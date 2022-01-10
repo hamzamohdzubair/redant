@@ -13,6 +13,13 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 
 ### Important Links
 [![Github](https://img.shields.io/badge/github-hamzamohdzubair%2Fredant-blue?style=for-the-badge&logo=github)](https://github.com/hamzamohdzubair/redant)
+[![Github](https://img.shields.io/badge/github-hamzamohdzubair%2Fredant-blue?style=for-the-badge&logo=github)](https://github.com/hamzamohdzubair/redant)
+
+&#e28b;
+&book;
+&alpha;
+
+&nf-fae-book_open_o;
 
 Generate a random combination of color and creature. Userful in naming objects, modules, packages, libraries (like this one).
 
