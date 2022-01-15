@@ -3,7 +3,6 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 </h1>
 
 
-<div align="center">
 
 [![](https://img.shields.io/badge/github-blue?style=for-the-badge)](https://github.com/hamzamohdzubair/redant)
 [![](https://img.shields.io/badge/book-blueviolet?style=for-the-badge)](https://hamzamohdzubair.github.io/redant/)
@@ -11,7 +10,6 @@ redant <img style="vertical-align:middle;" alt="logo" src="https://i.imgur.com/7
 [![](https://img.shields.io/badge/Crates.io-orange?style=for-the-badge)](https://crates.io/crates/redant)
 [![](https://img.shields.io/badge/Lib.rs-lightgrey?style=for-the-badge)](https://lib.rs/crates/redant)
 
-</div>
 
 ---
 
