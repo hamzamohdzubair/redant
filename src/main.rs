@@ -1,5 +1,3 @@
-use colored::*;
-
 mod cli;
 mod inner;
 use inner::{Basic, Advanced};

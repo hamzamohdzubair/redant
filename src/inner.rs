@@ -75,12 +75,6 @@ pub struct Composition<'a> {
     container: Vec<&'a Elements>,
 }
 
-// impl<'a> Composition<'a> {
-//     fn new(arr: Vec<&'a Object>) -> Self {
-//         Self {container: arr}
-//     }
-// }
-
 pub trait Advanced<'a> {
     fn new(arr: Vec<&'a Elements>) -> Self;
     fn count(&self) -> usize;
