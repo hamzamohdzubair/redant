@@ -7,16 +7,17 @@ description = "This app generates a combination of a random color and a random c
 
 license = "MIT"
 repository = "https://github.com/hamzamohdzubair/redant.git"
+documentation = "https://hamzamohdzubair.github.io/redant/"
 readme = "Readme.md"
 keywords = ["names", "generator", "random"]
 categories = ["command-line-utilities"]
-documentation = "https://hamzamohdzubair.github.io/redant/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 lazy_static = "1.4.0"
-rand = { version = "0.8" }
-clap = { version = "3.0.0-rc.8", features = ["derive"] }
-colored = "2"
-dirs = "4.0"
+rand = "0.8.4"
+clap = { version = "3.0.14", features = ["cargo", "regex", "env"] }
+colored = "2.0.0"
+dirs = "4.0.0"
+regex = "1.5.4"

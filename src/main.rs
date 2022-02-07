@@ -1,91 +1,77 @@
-use clap::Parser;
 use colored::*;
-use rand::seq::IteratorRandom;
-
-lazy_static::lazy_static! {
-    static ref CWD: std::path::PathBuf = dirs::home_dir().unwrap().join(".redant");
-
-}
 
 mod cli;
+mod inner;
+use inner::{Basic, Advanced};
 
 fn main() {
-    let cli = cli::Cli::parse();
+    let cli = cli::cli().get_matches();
 
-    let creatures = std::fs::read_to_string(&*CWD.join("creatures")).unwrap_or_else(|_| {
-        std::fs::create_dir_all(&*CWD).unwrap();
-        read_write_return(include_str!("data/creatures"), "creatures")
-    });
+    let mut creatures = inner::Elements::new("creatures", include_str!("data/creatures"));
+    let mut colors = inner::Elements::new("colors", include_str!("data/colors"));
+    creatures.read_cwd_or_origin();
+    colors.read_cwd_or_origin();
+    let composition = inner::Composition::new(vec![&colors, &creatures]);
 
-    let colors = std::fs::read_to_string(&*CWD.join("colors")).unwrap_or_else(|_| {
-        std::fs::create_dir_all(&*CWD).unwrap();
-        read_write_return(include_str!("data/colors"), "colors")
-    });
 
-    match &cli.command {
-        cli::Commands::Reset {} => {
-            std::fs::create_dir_all(&*CWD).unwrap();
-            std::fs::write(&*CWD.join("creatures"), include_str!("data/creatures")).unwrap();
-            std::fs::write(&*CWD.join("colors"), include_str!("data/colors")).unwrap();
+    match &cli.subcommand().unwrap() {
+        ("generate", args) => {
+            let generate_output = args.value_of("num").unwrap().parse::<i32>().unwrap();
+            for _ in 0..generate_output {
+                let find_random = || {
+                    for _ in 0..composition.count() {
+                        let output = composition.random();
+                        if output.len() <= args.value_of("max").unwrap().parse::<usize>().unwrap() {
+                            return Some(output);
+                        }
+                    }
+                    None
+                };
+                println!("{}", find_random().unwrap_or(
+                    format!("No combinations available of length: {}", args.value_of("max").unwrap())))
+            }
         }
-
-        cli::Commands::Generate { num, max } => {
-            for _ in 0..num.unwrap_or(1) {
-                for _ in 0..5000 {
-                    let random_creature =
-                        creatures.lines().choose(&mut rand::thread_rng()).unwrap();
-                    let random_color = colors.lines().choose(&mut rand::thread_rng()).unwrap();
-                    let combination = format!("{}{}", random_color, random_creature);
-
-                    if combination.len() <= max.unwrap_or(100) {
-                        println!("{}{}", random_color, random_creature);
-                        break;
+        ("reset", _) => {
+            creatures.write_to_home();
+            colors.write_to_home();
+        }
+        ("stat", args) => {
+            match args.subcommand().unwrap() {
+                ("count", args) => {
+                    match args.value_of("size") {
+                        Some(size) => {
+                            let size = size.parse::<usize>().unwrap();
+                            println!("creatures: {}", creatures.filter_on_len(size).len());
+                            println!("colors: {}", colors.filter_on_len(size).len());
+                        }
+                        None => {
+                            println!("creatures: {}", creatures.count());
+                            println!("colors: {}", colors.count());
+                            println!("combinations: {}", composition.count());
+                        }
                     }
                 }
+                _ => {}
             }
         }
-
-        cli::Commands::Stat { command } => match &command {
-            cli::StatCommands::Count {} => {
-                let creatures_count = creatures.lines().count();
-                let colors_count = colors.lines().count();
-                println!("creatures: {}", creatures_count);
-                println!("colors: {}", colors_count);
-                println!("combinations: {}", creatures_count * colors_count)
+        ("creature", args) => {
+            match args.subcommand().unwrap() {
+                ("add", args) => {
+                    creatures.check_print_add(args.values_of("creature").unwrap().collect())
+                }
+                _ => {}
             }
-        },
 
-        cli::Commands::Creature { command } => match &command {
-            cli::CreatureCommands::Add { inputs } => {
-                let new_colors = check_for_existence_then_add(inputs, &creatures);
-                std::fs::write(&*CWD.join("creatures"), new_colors).unwrap();
-            }
-        },
-
-        cli::Commands::Color { command } => match &command {
-            cli::ColorCommands::Add { inputs } => {
-                let new_colors = check_for_existence_then_add(inputs, &colors);
-                std::fs::write(&*CWD.join("colors"), new_colors).unwrap();
-            }
-        },
-    }
-}
-
-fn check_for_existence_then_add(lst_inputs: &Vec<String>, gold_string: &str) -> String {
-    let mut return_string = gold_string.to_owned();
-    for elem in lst_inputs.iter() {
-        if return_string.lines().any(|oneline| oneline == elem) {
-            print!("{} ", elem.red());
-        } else {
-            print!("{} ", elem.green());
-            return_string.push_str(&format!("\n{}", &elem))
         }
-    }
-    println!(" ");
-    return_string
-}
+        ("color", args) => {
+            match args.subcommand().unwrap() {
+                ("add", args) => {
+                    creatures.check_print_add(args.values_of("creature").unwrap().collect())
+                }
+                _ => {}
+            }
+        }
+        _ => {}
 
-fn read_write_return(in_file: &str, out_file: &str) -> String {
-    std::fs::write(&*CWD.join(out_file), in_file).unwrap();
-    in_file.to_owned()
+    }
 }

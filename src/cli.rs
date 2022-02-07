@@ -1,83 +1,59 @@
-#[derive(clap::Parser)]
-#[clap(author, version, about)]
-#[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
-pub struct Cli {
-
-    #[clap(subcommand)]
-    pub command: Commands,
+lazy_static::lazy_static!{
+    static ref DIGITS: regex::Regex = regex::Regex::new(r"\d+").unwrap();
 }
 
-#[derive(clap::Subcommand)]
-pub enum Commands {
+pub fn cli() -> clap::App<'static> {
+    clap::app_from_crate!()
+        .setting(clap::AppSettings::SubcommandRequiredElseHelp)
+        .subcommand(
+            clap::App::new("generate")
+            .about("generate a combination of color and creature")
+            .arg(
+                clap::arg!(num: -n --num [INT] "select number of outputs")
+                .default_value("1")
+                .validator_regex(&*DIGITS, "only numbers are allowed")
+                .multiple_values(false)
+            )
+            .arg(
+                clap::arg!(max: -m --max [INT] "select max length of generated word")
+                .default_value("40")
+                .validator_regex(&*DIGITS, "only numbers are allowed")
+                .multiple_values(false)
+            )
+        )
+        .subcommand(
+            clap::App::new("reset")
+            .about("reset local data")
+        )
+        .subcommand(
+            clap::App::new("stat")
+            .about("print stats related to creatures and colors")
+            .setting(clap::AppSettings::SubcommandRequiredElseHelp)
+            .subcommand(
+                clap::App::new("count")
+                .about("print the total counts")
+                .arg(
+                    clap::arg!(size: -s --size [INT] "count words of given size")
+                )
 
-    /// generate a combination of color and creature
-    Generate {
-        
-        /// number of generations
-        #[clap(short='n', long)]
-        num: Option<usize>,
-
-        /// max length of generated word
-        #[clap(short='m', long)]
-        max: Option<usize>,
-
-
-    },
-
-    /// reset local data
-    Reset { },
-
-    /// print stats related to creatures and colors
-    #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
-    Stat {
-
-        #[clap(subcommand)]
-        command: StatCommands
-    },
-
-    /// manipulate creature list
-    #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
-    Creature {
-
-        #[clap(subcommand)]
-        command: CreatureCommands
-    },
-
-    /// manipulate color list
-    #[clap(setting(clap::AppSettings::SubcommandRequiredElseHelp))]
-    Color {
-
-        #[clap(subcommand)]
-        command: ColorCommands
-    },
-}
+            )
+        )
+        .subcommand(
+            clap::App::new("creature")
+            .about("manipulate local creature list")
+            .setting(clap::AppSettings::SubcommandRequiredElseHelp)
+            .subcommand(
+                clap::App::new("add")
+                .about("add list of creatures to local db")
+                .arg(
+                    clap::arg!(creature: <CREATURES> ...)
+                )
 
 
-#[derive(clap::Subcommand)]
-pub enum StatCommands {
-
-    /// print counts of creatures, colors and combinations
-    Count {}
-
-}
-
-#[derive(clap::Subcommand)]
-pub enum CreatureCommands {
-
-    /// add multiple creatures
-    Add {
-
-        inputs: Vec<String>,
-    }
-
-}
-
-#[derive(clap::Subcommand)]
-pub enum ColorCommands {
-
-    /// add multiple colors
-    Add {
-        inputs: Vec<String>,
-    }
-
+                )
+        )
+        .subcommand(
+            clap::App::new("color")
+                .about("manipulate local color list")
+        )
 }
