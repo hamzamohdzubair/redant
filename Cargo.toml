@@ -1,8 +1,8 @@
 [package]
 name = "redant"
-version = "0.1.9"
+version = "0.1.10"
 authors = ["Hamza Mohd Zubair <hamzamohdzubair@gmail.com>"]
-edition = "2021"
+edition = "2024"
 description = "This app generates a combination of a random color and a random creature (real and fictional)"
 
 license = "MIT"
